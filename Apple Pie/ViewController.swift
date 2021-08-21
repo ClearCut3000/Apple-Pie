@@ -110,10 +110,21 @@ class ViewController: UIViewController {
         currentGame = Game (word: newWord, incorrectMovesRemaining: incorrectMovesAllowerd)
         updateUI()
     }
+    
+    func updateCorrectWordLabel(){
+        var displayWord = [String]()
+        for letter in currentGame.guessedWord{
+            displayWord.append(String(letter))
+        }
+        correctWordLabel.text = displayWord.joined(separator: " ")
+    }
+    
     func updateUI(){
         let movesRemainig = currentGame.incorrectMovesRemaining
-        let image = "Tree \(movesRemainig < 8 ? movesRemainig : 7)"
+        let imageNumber = (movesRemainig + 64) % 8
+        let image = "Tree \(imageNumber)"
         treeImageView.image = UIImage(named: image)
+        updateCorrectWordLabel()
         scoreLabel.text = "Выигрыши: \(totalWins), Проигрыши: \(totalLosses)"
     }
     
@@ -128,6 +139,11 @@ class ViewController: UIViewController {
     
     @IBAction func letterButtonPressed(_ sender: UIButton) {
         sender.isEnabled  = false
+        let letter = sender.title(for: .normal)!
+        
+        currentGame.playerGuessed(letter: Character(letter))
+        
+        updateUI()
     }
 }
 
