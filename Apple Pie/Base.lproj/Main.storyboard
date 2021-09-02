@@ -753,7 +753,8 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="3Qu-78-Bcq"/>
+                                                    <action selector="unwindFunctionWithUnwindSegue:" destination="SPi-OV-0xJ" eventType="touchUpInside" id="iwW-Xd-UNe"/>
+                                                    <segue destination="8Li-0O-XsT" kind="unwind" unwindAction="unwindFunctionWithUnwindSegue:" id="33a-m4-dds"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -805,6 +806,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPi-OV-0xJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8Li-0O-XsT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1465" y="58"/>
         </scene>

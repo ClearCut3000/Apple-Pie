@@ -96,7 +96,9 @@ class ViewController: UIViewController {
         currentGame.playerGuessed(letter: Character(letter))
         updateState()
     }
-
+    
+    @IBAction func unwindFunction(unwindSegue: UIStoryboardSegue) {
+       }
 }
 
 class SecondViewController: ViewController {
@@ -116,4 +118,5 @@ class SecondViewController: ViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
         }
+   
 }
